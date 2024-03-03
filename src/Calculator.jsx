@@ -5,17 +5,23 @@ const Calculator = () => {
 
     const handleInputValue = (e) => {
         e.preventDefault()
-        setInputValue(inputValue + e.target.value)
+        if (inputValue === "0")
+            setInputValue(e.target.value)
+        else
+            setInputValue(inputValue + e.target.value)
     }
 
     const handleClearInputValue = (e) => {
         e.preventDefault()
-        setInputValue('')
+        setInputValue("0")
     }
 
     const handleDeleteInputValue = (e) => {
         e.preventDefault()
-        setInputValue(inputValue.slice(0, -1))
+        if (inputValue.length === 1)
+            setInputValue("0")
+        else
+            setInputValue(inputValue.slice(0, -1))
     }
 
     const handleCalculation = (e) => {
